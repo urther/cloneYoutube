@@ -7,14 +7,14 @@ function App() {
   useEffect(() => {
     const config = {
       method: "get",
-      url: "https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&key=AIzaSyCWD9eOzlHTPu-BfvPTZ4FhKchu55ROpcs",
+      url: `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&key=${process.env.REACT_APP_API_KEY}`,
       headers: {},
     };
 
     axios(config)
       .then(function (response) {
-        console.log(response.data.items);
-        setVideos(response.items.items);
+        // console.log(response.data.items);
+        setVideos(response.data.items);
       })
       .catch(function (error) {
         console.log(error);
