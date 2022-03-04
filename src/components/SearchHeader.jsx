@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { memo, useRef } from "react";
+import { Link } from "react-router-dom";
 
-const SearchHeader = ({ onSearch }) => {
+const SearchHeader = memo(({ onSearch }) => {
   const inputRef = useRef();
 
   const handleSearch = () => {
@@ -21,9 +22,11 @@ const SearchHeader = ({ onSearch }) => {
   };
 
   return (
-    <header>
-      {/* 로고추가 */}
-      <h1>덕후를 위한 유투브입니당 'ㅅ'</h1>
+    <header className="header">
+      <Link to="/">
+        <img src="/assets/lg.png" alt="밍튜브 로고" />
+      </Link>
+      <h1 className="sr-only">덕후를 위한 유투브입니당 'ㅅ'</h1>
       <form onSubmit={(event) => onSubmit(event)}>
         <legend>검색 입력 창</legend>
         <fieldset>
@@ -33,6 +36,6 @@ const SearchHeader = ({ onSearch }) => {
       </form>
     </header>
   );
-};
+});
 
 export default SearchHeader;

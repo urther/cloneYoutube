@@ -1,7 +1,7 @@
 import React from "react";
 
-const VideoItem = ({ video: { snippet } }) => (
-  <li>
+const VideoItem = ({ video, video: { snippet }, onVideoClick }) => (
+  <li onClick={() => onVideoClick(video)}>
     <img src={snippet.thumbnails.medium.url} alt={snippet.title} />
     <div>
       <p>{snippet.title}</p>
