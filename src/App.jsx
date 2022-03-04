@@ -1,27 +1,26 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import SearchHeader from "./components/SearchHeader/SearchHeader";
 import Videos from "./components/VideoList/Videos";
 
-function App() {
+function App({ youtube }) {
   const [videos, setVideos] = useState([]);
 
-  useEffect(() => {
-    const config = {
-      method: "get",
-      url: `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=${process.env.REACT_APP_API_KEY}`,
-      headers: {},
-    };
+  const search = (query) => {
+    youtube.search(query).then((videos) => setVideos(videos));
+  };
 
-    axios(config)
-      .then(function (response) {
-        setVideos(response.data.items);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+  useEffect(() => {
+    youtube.mostPopular().then((videos) => setVideos(videos));
   }, []);
 
-  return <Videos videos={videos} />;
+  useEffect(() => console.log(videos), [videos]);
+
+  return (
+    <div>
+      <SearchHeader onSearch={search} />
+      <Videos videos={videos} />;
+    </div>
+  );
 }
 
 export default App;
