@@ -1,0 +1,28 @@
+.header {
+  background-color: black;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+
+  > a {
+    > img {
+      width: 200px;
+    }
+  }
+  > form {
+    width: 100%;
+  }
+
+  &__input {
+    width: 80%;
+    font-size: 1.2rem;
+  }
+  &__btn {
+    // float: right;
+    border: none;
+    padding: 0px;
+    width: 40px;
+    height: 25px;
+    background-color: darkgrey;
+  }
+}
