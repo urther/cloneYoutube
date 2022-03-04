@@ -28,10 +28,16 @@ const SearchHeader = memo(({ onSearch }) => {
       </Link>
       <h1 className="sr-only">덕후를 위한 유투브입니당 'ㅅ'</h1>
       <form onSubmit={(event) => onSubmit(event)}>
-        <legend>검색 입력 창</legend>
+        <legend className="sr-only">검색 입력 창</legend>
         <fieldset>
-          <input ref={inputRef} onKeyPress={(event) => onKeyPress(event)} />
-          <button onClick={() => onClick}>검색이다옹</button>
+          <input
+            className="header__input"
+            ref={inputRef}
+            onKeyPress={(event) => onKeyPress(event)}
+          />
+          <button className="header__btn" onClick={() => onClick}>
+            검색
+          </button>
         </fieldset>
       </form>
     </header>

@@ -2,7 +2,7 @@ import React from "react";
 
 const VideoDetail = ({ video }) => {
   return (
-    <section>
+    <section className="detail">
       <iframe
         id="ytplayer"
         title={video.snippet.title}
@@ -13,9 +13,9 @@ const VideoDetail = ({ video }) => {
         frameBorder="0"
         allowFullScreen
       ></iframe>
-      <h2>{video.snippet.title}</h2>
-      <h3>{video.snippet.channelTitle}</h3>
-      <pre>{video.snippet.description}</pre>
+      <h2 className="detail--title">{video.snippet.title}</h2>
+      <h3 className="detail--channel">{video.snippet.channelTitle}</h3>
+      <pre className="detail--des">{video.snippet.description}</pre>
     </section>
   );
 };
